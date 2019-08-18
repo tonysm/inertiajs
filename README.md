@@ -18,6 +18,14 @@ This preset scaffolding removes the manual steps required to get up and running 
 2. `npm install && npm run dev`
 3. `php artisan serve` (or equivalent) to run server and test preset.
 
+### Installation with Auth Scaffolding
+
+1. Use `php artisan preset inertiajs --option=auth` to install the scaffolding
+2. `npm install && npm run dev`
+3. Install the ziggy composer package `composer require tightenco/ziggy` (to make your app routes available in JS land)
+4. Configure your database properly
+5. `php artisan serve` (or equivalent) to run server and test preset.
+
 ## More
 
 Learn more about Inertia.js from [@reinink](https://twitter.com/reinink)'s [introductory blog post](https://reinink.ca/articles/introducing-inertia-js).
