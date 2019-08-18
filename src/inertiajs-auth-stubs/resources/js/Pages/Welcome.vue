@@ -6,7 +6,7 @@
                 <inertia-link href="/about">About</inertia-link>
                 <inertia-link v-if="loggedIn" href="/home">Home</inertia-link>
                 <inertia-link v-if="!loggedIn" href="/login">Login</inertia-link>
-                <inertia-link v-if="!loggedIn" href="/contact">Register</inertia-link>
+                <inertia-link v-if="!loggedIn" href="/register">Register</inertia-link>
             </div>
 
             <div class="content">
