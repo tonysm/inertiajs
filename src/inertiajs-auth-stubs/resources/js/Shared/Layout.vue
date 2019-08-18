@@ -1,7 +1,7 @@
 <template>
   <div>
-    <MainMenu v-if="withMenu" />
-    <slot></slot>
+      <MainMenu v-if="withMenu" />
+      <slot></slot>
   </div>
 </template>
 
@@ -9,13 +9,13 @@
 import MainMenu from '@/Shared/MainMenu';
 export default {
   components: {
-    MainMenu,
+      MainMenu,
   },
   props: {
     title: String,
     withMenu: {
-      type: Boolean,
-      default: () => true,
+        type: Boolean,
+        default: () => true,
     },
   },
   watch: {

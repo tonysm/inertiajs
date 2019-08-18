@@ -8,7 +8,7 @@ use Illuminate\Support\Arr;
 
 class InertiaJsPreset extends Preset
 {
-    public static function install()
+    public static function install(array $options = [])
     {
         static::updatePackages();
         static::updateBootstrapping();
@@ -17,6 +17,10 @@ class InertiaJsPreset extends Preset
         static::scaffoldComponents();
         static::scaffoldRoutes();
         static::removeNodeModules();
+
+        if (in_array('auth', $options)) {
+            static::scaffoldAuth();
+        }
     }
 
     protected static function updatePackageArray(array $packages)
@@ -26,6 +30,8 @@ class InertiaJsPreset extends Preset
             '@inertiajs/inertia' => '^0.1.0',
             '@inertiajs/inertia-vue' => '^0.1.0',
             'vue-template-compiler' => '^2.6.10',
+            'jquery' => '^3.2',
+            'bootstrap' => '^4.2.0',
         ], $packages);
     }
 
@@ -57,7 +63,7 @@ class InertiaJsPreset extends Preset
 
     protected static function scaffoldComponents()
     {
-        tap(new Filesystem, function ($fs) {
+        tap(new Filesystem, function (Filesystem $fs) {
             $fs->deleteDirectory(resource_path('js/components'));
 
             $fs->copyDirectory(__DIR__.'/inertiajs-stubs/resources/js/Shared', resource_path('js/Shared'));
@@ -68,6 +74,21 @@ class InertiaJsPreset extends Preset
 
     protected static function scaffoldRoutes()
     {
-        copy(__DIR__.'/inertiajs-stubs/routes/web.php', base_path('routes/web.php'));
+        copy(__DIR__.'/inertiajs-stubs/routes/web.php', base_path('routes/web.stub'));
+    }
+
+    protected static function scaffoldAuth()
+    {
+        tap(new Filesystem, function (Filesystem $fs) {
+            $fs->append(base_path('routes/web.php'), $fs->get(__DIR__.'/inertiajs-auth-stubs/routes/web.stub'));
+
+            $fs->copyDirectory(__DIR__.'/inertiajs-auth-stubs/resources/js/Shared', resource_path('js/Shared'));
+
+            $fs->copyDirectory(__DIR__.'/inertiajs-auth-stubs/resources/js/Pages', resource_path('js/Pages'));
+
+            $fs->copyDirectory(__DIR__.'/inertiajs-auth-stubs/controllers', app_path('Http/Controllers'));
+
+            $fs->copy(__DIR__.'/inertiajs-auth-stubs/providers/InertiaServiceProvider.stub', app_path('Providers'));
+        });
     }
 }
