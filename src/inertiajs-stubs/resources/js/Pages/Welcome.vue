@@ -4,7 +4,6 @@
       <div class="top-right links">
         <inertia-link href="/">Welcome</inertia-link>
         <inertia-link href="/about">About</inertia-link>
-        <inertia-link href="/contact">Contact</inertia-link>
       </div>
 
       <div class="content">

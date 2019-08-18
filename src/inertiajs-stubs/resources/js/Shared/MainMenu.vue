@@ -15,9 +15,6 @@
                     <li class="nav-item">
                         <inertia-link href="/about" class="nav-link">About</inertia-link>
                     </li>
-                    <li class="nav-item">
-                        <inertia-link href="/contact" class="nav-link">Contact</inertia-link>
-                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

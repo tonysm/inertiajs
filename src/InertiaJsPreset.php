@@ -82,13 +82,13 @@ class InertiaJsPreset extends Preset
         tap(new Filesystem, function (Filesystem $fs) {
             $fs->append(base_path('routes/web.php'), $fs->get(__DIR__.'/inertiajs-auth-stubs/routes/web.stub'));
 
-            $fs->copyDirectory(__DIR__.'/inertiajs-auth-stubs/resources/js/Shared', resource_path('js/Shared'));
-
-            $fs->copyDirectory(__DIR__.'/inertiajs-auth-stubs/resources/js/Pages', resource_path('js/Pages'));
+            $fs->copyDirectory(__DIR__.'/inertiajs-auth-stubs/resources/js', resource_path('js'));
 
             $fs->copyDirectory(__DIR__.'/inertiajs-auth-stubs/controllers', app_path('Http/Controllers'));
 
-            $fs->copy(__DIR__.'/inertiajs-auth-stubs/providers/InertiaServiceProvider.stub', app_path('Providers'));
+            $fs->copy(__DIR__.'/inertiajs-auth-stubs/providers/InertiaServiceProvider.stub', app_path('Providers/InertiaServiceProvider.php'));
+
+            $fs->copy(__DIR__.'/inertiajs-auth-stubs/resources/views/app.blade.php', resource_path('views/app.blade.php'));
         });
     }
 }

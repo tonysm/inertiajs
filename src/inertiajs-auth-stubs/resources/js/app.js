@@ -4,6 +4,7 @@ import Vue from 'vue'
 import './bootstrap';
 
 Vue.config.productionTip = false
+Vue.mixin({ methods: { route: window.route } })
 Vue.use(InertiaApp)
 
 let app = document.getElementById('app')
