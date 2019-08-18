@@ -10,13 +10,13 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <inertia-link :href="route('/')" class="nav-link">Welcome</inertia-link>
+                        <inertia-link href="/" class="nav-link">Welcome</inertia-link>
                     </li>
                     <li class="nav-item">
-                        <inertia-link :href="route('about')" class="nav-link">About</inertia-link>
+                        <inertia-link href="/about" class="nav-link">About</inertia-link>
                     </li>
                     <li class="nav-item">
-                        <inertia-link :href="route('contact')" class="nav-link">Contact</inertia-link>
+                        <inertia-link href="/contact" class="nav-link">Contact</inertia-link>
                     </li>
                 </ul>
 

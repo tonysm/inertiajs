@@ -1,5 +1,4 @@
 import { InertiaApp } from '@inertiajs/inertia-vue'
-import PortalVue from 'portal-vue'
 import Vue from 'vue'
 
 import './bootstrap';
@@ -7,7 +6,6 @@ import './bootstrap';
 Vue.config.productionTip = false
 Vue.mixin({ methods: { route: window.route } })
 Vue.use(InertiaApp)
-Vue.use(PortalVue)
 
 let app = document.getElementById('app')
 

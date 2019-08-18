@@ -74,7 +74,7 @@ class InertiaJsPreset extends Preset
 
     protected static function scaffoldRoutes()
     {
-        copy(__DIR__.'/inertiajs-stubs/routes/web.php', base_path('routes/web.stub'));
+        copy(__DIR__.'/inertiajs-stubs/routes/web.php', base_path('routes/web.php'));
     }
 
     protected static function scaffoldAuth()
